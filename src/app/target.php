@@ -1,6 +1,12 @@
 <?php
 
-require_once APP_DIR . '/conf/dbconf.php';
+if (file_exists(APP_DIR . '/conf/set_env.php')) {
+	require_once APP_DIR . '/conf/set_env.php';
+} else {
+	echo 'please set up set_env.php';
+	exit;
+}
+
 
 echo 'target';
 
