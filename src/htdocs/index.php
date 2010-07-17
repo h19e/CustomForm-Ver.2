@@ -1,10 +1,19 @@
 <?php
 
+require_once '../app/dbconf.php';
+
 echo "Hello CustomForm alpha";
 
 
+
+
+
+
+
+
+
 try {
-	$pdo = new PDO("mysql:host=localhost; dbname=sampledb","sample_user","sample_user");
+	$pdo = new PDO("mysql:host=" . DB_HOST ."; dbname=sampledb",DB_USER,DB_PASS);
 
 	$stmt = $pdo->query('select * from db_test ');
 
