@@ -1,10 +1,8 @@
 <?php
 
-require_once '../app/dbconf.php';
+require_once APP_DIR . '/conf/dbconf.php';
 
-echo "Hello CustomForm alpha";
-
-
+echo 'target';
 
 try {
 	$pdo = new PDO("mysql:host=" . DB_HOST ."; dbname=sampledb",DB_USER,DB_PASS);
@@ -17,7 +15,4 @@ try {
 } catch (PDOException $e) {
 	var_dump($e->getMessage());
 }
-
-
-
 

@@ -57,15 +57,31 @@ else
 fi
 echo $DB_PASS
 
-
+mkdir $APP_DIR
+mkdir $APP_DIR/lib
+mkdir $APP_DIR/conf
 cp ../src/htdocs/index.php $HTDOCS_DIR/index.php
-cp ../src/app/App.php $APP_DIR/App.php
+cp ../src/app/target.php $APP_DIR/target.php
+cp ../src/app/lib/Controller.php $APP_DIR/lib/Controller.php
+
+rm $APP_DIR/App.php
+rm $APP_DIR/dbconf.php
+
+#make indexfile
+echo '<?php' > $HTDOCS_DIR/index.php
+echo 'define("APP_DIR","'$APP_DIR'");' >> $HTDOCS_DIR/index.php 
+echo "require_once APP_DIR .'/target.php';" >> $HTDOCS_DIR/index.php
 
 
-
-#makefile
-echo '<?php' > $APP_DIR/dbconf.php
+#make conffile
+echo '<?php' > $APP_DIR/conf/dbconf.php
 echo ''
-echo 'define("DB_HOST","'$DB_HOST'");' >> $APP_DIR/dbconf.php 
-echo 'define("DB_USER","'$DB_USER'");' >> $APP_DIR/dbconf.php 
-echo 'define("DB_PASS","'$DB_PASS'");' >> $APP_DIR/dbconf.php 
+echo 'define("DB_HOST","'$DB_HOST'");' >> $APP_DIR/conf/dbconf.php 
+echo 'define("DB_USER","'$DB_USER'");' >> $APP_DIR/conf/dbconf.php 
+echo 'define("DB_PASS","'$DB_PASS'");' >> $APP_DIR/conf/dbconf.php
+
+
+
+
+
+ 
