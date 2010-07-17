@@ -24,6 +24,8 @@ else
 fi
 echo $APP_DIR
 
+
+
 mkdir $APP_DIR
 mkdir $APP_DIR/lib
 mkdir $APP_DIR/conf
@@ -31,7 +33,6 @@ cp ../src/htdocs/index.php $HTDOCS_DIR/index.php
 cp ../src/app/target.php $APP_DIR/target.php
 cp ../src/app/lib/Controller.php $APP_DIR/lib/Controller.php
 cp ../src/app/conf/set_env_template.php $APP_DIR/conf/set_env_template.php
-
 
 rm $APP_DIR/App.php
 rm $APP_DIR/dbconf.php

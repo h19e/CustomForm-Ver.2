@@ -8,8 +8,6 @@ if (file_exists(APP_DIR . '/conf/set_env.php')) {
 }
 
 
-echo 'target';
-
 try {
 	$pdo = new PDO("mysql:host=" . DB_HOST ."; dbname=sampledb",DB_USER,DB_PASS);
 
