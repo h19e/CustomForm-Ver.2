@@ -2,10 +2,14 @@
 
 class Controller 
 {
+	
+	static private $instance = null;
+
 
 	private function __construct()
 	{
-		
+		$this->module = "Top";
+		$this->action = "Index";		
 	}
 
 	static public function getInstance()
@@ -18,7 +22,7 @@ class Controller
 	
 	public function forward()
 	{
-		$filePath = Env::APP_DIR . '/modules/' . $this->module . '/actions/' . $this->action . '.php';
+		$filePath = APP_DIR . '/modules/' . $this->module . '/actions/' . $this->action . '.php';
 		if (file_exists($filePath)) {
 			include_once $filePath;
 		} else {
