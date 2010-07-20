@@ -29,6 +29,7 @@ echo $APP_DIR
 mkdir $APP_DIR
 mkdir $APP_DIR/lib
 mkdir $APP_DIR/conf
+mkdir $APP_DIR/components
 mkdir $APP_DIR/modules
 mkdir $APP_DIR/modules/Top
 mkdir $APP_DIR/modules/Top/actions
@@ -41,6 +42,8 @@ cp ../src/app/target.php $APP_DIR/target.php
 cp ../src/app/lib/Controller.php $APP_DIR/lib/Controller.php
 cp ../src/app/lib/Parameter.php $APP_DIR/lib/Parameter.php
 cp ../src/app/lib/View.php $APP_DIR/lib/View.php
+
+cp ../src/app/components/Header.tpl.php $APP_DIR/components/Header.tpl.php
 
 cp ../src/app/modules/Top/actions/Index.php $APP_DIR/modules/Top/actions/Index.php
 cp ../src/app/modules/Top/views/Index.tpl.php $APP_DIR/modules/Top/views/Index.tpl.php

@@ -2,6 +2,7 @@
 <body>
 Hello 
 Count::<?php $view->display('count'); ?>
+<?php $view->inject('Header'); ?>
 </body>
 </html>
 

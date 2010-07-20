@@ -16,4 +16,13 @@ class View
 	{
 		return $this->parameter->get($key);
 	}
+
+	public function inject($name)
+	{
+		$view = new View();
+		include APP_DIR . '/components/' . $name . '.tpl.php';
+	}
+
+
+	
 }
