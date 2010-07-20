@@ -33,6 +33,11 @@ class Controller
 		$actionInstance = new $className;
 		
 		$actionInstance->execute();
+	    
+		$view = new View();		
+		$templatePath = APP_DIR . '/modules/' . $this->module . '/views/' . $this->action . '.tpl.php';
+		include $templatePath;
+
 	}
 	
 }

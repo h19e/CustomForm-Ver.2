@@ -32,6 +32,7 @@ mkdir $APP_DIR/conf
 mkdir $APP_DIR/modules
 mkdir $APP_DIR/modules/Top
 mkdir $APP_DIR/modules/Top/actions
+mkdir $APP_DIR/modules/Top/views
 
 cp ../src/app/conf/set_env_template.php $APP_DIR/conf/set_env_template.php
 
@@ -39,13 +40,11 @@ cp ../src/app/target.php $APP_DIR/target.php
 
 cp ../src/app/lib/Controller.php $APP_DIR/lib/Controller.php
 cp ../src/app/lib/Parameter.php $APP_DIR/lib/Parameter.php
+cp ../src/app/lib/View.php $APP_DIR/lib/View.php
 
 cp ../src/app/modules/Top/actions/Index.php $APP_DIR/modules/Top/actions/Index.php
+cp ../src/app/modules/Top/views/Index.tpl.php $APP_DIR/modules/Top/views/Index.tpl.php
 
-
-rm $APP_DIR/App.php
-rm $APP_DIR/dbconf.php
-rm $APP_DIR/conf/dbconf.php
 
 #make indexfile
 echo '<?php' > $HTDOCS_DIR/index.php
