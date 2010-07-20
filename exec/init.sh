@@ -38,6 +38,7 @@ cp ../src/app/conf/set_env_template.php $APP_DIR/conf/set_env_template.php
 cp ../src/app/target.php $APP_DIR/target.php
 
 cp ../src/app/lib/Controller.php $APP_DIR/lib/Controller.php
+cp ../src/app/lib/Parameter.php $APP_DIR/lib/Parameter.php
 
 cp ../src/app/modules/Top/actions/Index.php $APP_DIR/modules/Top/actions/Index.php
 

@@ -5,11 +5,11 @@ class Controller
 	
 	static private $instance = null;
 
-
 	private function __construct()
 	{
-		$this->module = "Top";
-		$this->action = "Index";		
+		$parameter = Parameter::getInstance();
+		$this->module = $parameter->get('MO',"Top");
+		$this->action = $parameter->get('AC',"Index");		
 	}
 
 	static public function getInstance()
