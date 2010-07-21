@@ -25,6 +25,10 @@ fi
 echo $APP_DIR
 
 
+mkdir $HTDOCS_DIR
+mkdir $HTDOCS_DIR/css
+
+cp ../src/htdocs/css/base.css $HTDOCS_DIR/css/base.css
 
 mkdir $APP_DIR
 mkdir $APP_DIR/lib
