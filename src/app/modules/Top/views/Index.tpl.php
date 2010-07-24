@@ -6,17 +6,11 @@
 <title>CustomForm</title>
 <link rel="stylesheet" href="<?php echo ENTRY_PATH; ?>css/base.css" type="text/css" >
 <body>
-<section id="page">
 <header>
 <hgroup>
 <h1>CutomForm</h1>
 <h3>make original form</h3>
 </hgroup>
-
-
-
-<?php $view->inject('Header'); ?>
-<h1>CustomForm</h1>
 
 <div>
 <form action="<?php echo ENTRY_PATH; ?>" method="GET">
