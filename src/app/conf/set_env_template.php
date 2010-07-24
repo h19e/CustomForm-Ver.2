@@ -1,6 +1,7 @@
 <?php
 
 define("DB_HOST","localhost");
-define("DB_USER","sample_user");
-define("DB_PASS","sample_pass");
-define("ENTRY_PATH","/");
+define("DB_USER","customform_user");
+define("DB_PASS","password");
+define("DB_NAME","customform");
+define("ENTRY_PATH","/~h19e/");

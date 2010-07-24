@@ -9,22 +9,25 @@
 <header>
 <hgroup>
 <h1>CutomForm</h1>
-<h3>make original form</h3>
+<h3>アカウント作成</h3>
 </hgroup>
 
 <div>
-<form action="<?php echo ENTRY_PATH; ?>" method="GET">
+<form action="<?php echo ENTRY_PATH; ?>" method="POST">
+<input type="hidden" name="MO" value="User">
+<input type="hidden" name="AC" value="RegistComplete">
 <dl>
 <dt>アカウント</dt>
-<dd><input type="text" name="user_id" value=""></dd>
+<dd><input type="text" name="account" value=""></dd>
 <dt>パスワード</dt>
 <dd><input type="password" name="password" value=""></dd>
+<dt>メール</dt>
+<dd><input type="text" name="email_address" value=""></dd>
 </dl>
-<input type="submit" value="LOGIN" >
+<input type="submit" value="新規登録" >
 </form>
 </div>
 
-<a href="<?php echo ENTRY_PATH; ?>?MO=User&AC=RegistInput">アカウント作成</a>
 
 
 </body>

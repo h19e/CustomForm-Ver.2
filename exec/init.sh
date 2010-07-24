@@ -38,6 +38,9 @@ mkdir $APP_DIR/modules
 mkdir $APP_DIR/modules/Top
 mkdir $APP_DIR/modules/Top/actions
 mkdir $APP_DIR/modules/Top/views
+mkdir $APP_DIR/modules/User
+mkdir $APP_DIR/modules/User/actions
+mkdir $APP_DIR/modules/User/views
 
 cp ../src/app/conf/set_env_template.php $APP_DIR/conf/set_env_template.php
 
@@ -46,12 +49,15 @@ cp ../src/app/target.php $APP_DIR/target.php
 cp ../src/app/lib/Controller.php $APP_DIR/lib/Controller.php
 cp ../src/app/lib/Parameter.php $APP_DIR/lib/Parameter.php
 cp ../src/app/lib/View.php $APP_DIR/lib/View.php
+cp ../src/app/lib/Factory.php $APP_DIR/lib/Factory.php
 
 cp ../src/app/components/Header.tpl.php $APP_DIR/components/Header.tpl.php
 
 cp ../src/app/modules/Top/actions/Index.php $APP_DIR/modules/Top/actions/Index.php
 cp ../src/app/modules/Top/views/Index.tpl.php $APP_DIR/modules/Top/views/Index.tpl.php
 
+cp ../src/app/modules/User/actions/*.php $APP_DIR/modules/User/actions/
+cp ../src/app/modules/User/views/*.tpl.php $APP_DIR/modules/User/views/
 
 #make indexfile
 echo '<?php' > $HTDOCS_DIR/index.php
