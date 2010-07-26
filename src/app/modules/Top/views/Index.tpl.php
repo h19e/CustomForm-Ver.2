@@ -13,10 +13,12 @@
 </hgroup>
 
 <div>
-<form action="<?php echo ENTRY_PATH; ?>" method="GET">
+<form action="<?php echo ENTRY_PATH; ?>" method="POST">
+<input type="hidden" name="MO" value="Top">
+<input type="hidden" name="AC" value="LoginConfirm">
 <dl>
 <dt>アカウント</dt>
-<dd><input type="text" name="user_id" value=""></dd>
+<dd><input type="text" name="account" value=""></dd>
 <dt>パスワード</dt>
 <dd><input type="password" name="password" value=""></dd>
 </dl>

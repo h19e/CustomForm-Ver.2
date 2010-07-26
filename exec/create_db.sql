@@ -4,7 +4,7 @@ use customform
 create table `tbl_user` (
 `user_id` integer not null auto_increment,
 `account` varchar(16) not null,
-`password` varchar(16) not null,
+`password` varchar(32) not null,
 `email_address` varchar(255) default null,
 primary key (`user_id`),
 index (`account`)

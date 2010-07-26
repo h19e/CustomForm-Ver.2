@@ -20,23 +20,29 @@ class Controller
 		return self::$instance;
 	}
 	
-	public function forward()
+	public function forward($module = null,$action = null)
 	{
-		$filePath = APP_DIR . '/modules/' . $this->module . '/actions/' . $this->action . '.php';
+        if ($module == null || $action == null) {
+            $module = $this->module;
+            $action = $this->action;    
+        }
+
+        
+		$filePath = APP_DIR . '/modules/' . $module . '/actions/' . $action . '.php';
 		if (file_exists($filePath)) {
 			include_once $filePath;
 		} else {
 			throw new Exception;
 		}
 
-		$className = 'Action_' . $this->action;
+		$className = 'Action_' . $action;
 		$actionInstance = new $className;
 		
-		$actionInstance->execute();
-	    
-		$view = new View();		
-		$templatePath = APP_DIR . '/modules/' . $this->module . '/views/' . $this->action . '.tpl.php';
-		include $templatePath;
+		if ($actionInstance->execute() !== false) {
+		    $view = new View();		
+		    $templatePath = APP_DIR . '/modules/' . $module . '/views/' . $action . '.tpl.php';
+		    include $templatePath;
+        }
 
 	}
 	

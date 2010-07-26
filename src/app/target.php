@@ -22,6 +22,7 @@ try {
 	$controller = Controller::getInstance();
 	$controller->forward();
 } catch (Exception $e) {
+    echo "KK";
 	echo $e->getMessage();
 }
 
