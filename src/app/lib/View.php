@@ -35,7 +35,7 @@ class View
 	public function inject($name)
 	{
 		$view = new View();
-		include APP_DIR . '/components/' . $name . '.tpl.php';
+		include APP_DIR . '/components/' . str_replace('_'.'/',$name) . '.tpl.php';
 	}
 
 

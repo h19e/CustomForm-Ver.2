@@ -16,6 +16,7 @@
 <table border="1">
 <tr>
 <th>タイトル</th>
+<th>質問</th>
 <th>募集期間</th>
 <th>登録日</th>
 <th>更新日</th>
@@ -23,6 +24,7 @@
 <?php foreach ($view->get('form_list') as $info) : ?>
 <tr>
 <td><?php $view->display('title',$info); ?></td> 
+<td><a href="<?php echo ENTRY_PATH; ?>?MO=Question&AC=List&form_id=<?php $view->display('form_id',$info); ?>">質問</a></td> 
 <td><?php $view->dateDisplay('start_date',$info); ?> から <?php $view->dateDisplay('end_date',$info); ?></td> 
 <td><?php $view->display('create_date',$info); ?></td> 
 <td><?php $view->display('update_date',$info); ?></td> 
