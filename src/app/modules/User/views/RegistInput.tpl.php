@@ -21,7 +21,7 @@
 <dd><input type="text" name="account" value=""></dd>
 <dt>パスワード</dt>
 <dd><input type="password" name="password" value=""></dd>
-<dt>メール</dt>
+<dt>メールアドレス</dt>
 <dd><input type="text" name="email_address" value=""></dd>
 </dl>
 <input type="submit" value="新規登録" >
