@@ -1,0 +1,16 @@
+{% extends original_design %}
+
+{% block title %}プレビュー{% endblock %}
+
+{% block customform %}
+<div>
+<div>{{ message }}</div>
+
+{% for answer in answerBodys %}
+<div><b>{{ answer.name }} </b></div>
+<div>{{ answer.body|raw }}</div>
+{% endfor %}
+
+</div>
+
+{% endblock %}

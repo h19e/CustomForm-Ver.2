@@ -1,0 +1,53 @@
+{% extends "layout/manage.html" %}
+
+{% block title %}アンケートフォーム作成サイト CustomForm{% endblock %}
+
+{% block side %}
+main
+{% endblock %}
+
+{% block main %}
+<div>
+{{ validation_errors|raw }}
+<form class="default" action="/index.php/manage/customform/update/" method="post">
+<input type="hidden" name="customform_id" value="{{ customform_id }}" />
+<div>
+<label>フォームタイトル</label><br />
+<input type="text" name="customform_title" class="text" size="20" value="{{ customform_title }}" />
+</div>
+<div>
+<label>フォームタイプ</label><br />
+<select name="design_id">
+{% for value in designList %}
+<option value="{{ value.design_id }}" {{ design_id == value.design_id ? 'selected' : '' }} >{{ value.design_type }}</option>
+{% endfor %}
+</select>
+</div>
+<div>
+<label>入力画面メッセージ</label><br />
+<textarea rows="4" cols="40" name="input_message" class="text" >{{ input_message }}</textarea>
+</div>
+<div>
+<label>確認画面メッセージ</label><br />
+<textarea rows="4" cols="40" name="confirm_message" class="text" >{{ confirm_message }}</textarea>
+</div>
+<div>
+<label>完了画面メッセージ</label><br />
+<textarea rows="4" cols="40" name="complete_message" class="text" >{{ complete_message }}</textarea>
+</div>
+<div>
+<label>アンケート回答期限</label><br />
+<input type="text" name="end_time_year" class="text" size="4" value="{{ end_time_year }}" />
+<label>年</label>
+<input type="text" name="end_time_month" class="text" size="2" value="{{ end_time_month }}" />
+<label>月</label>
+<input type="text" name="end_time_day" class="text" size="2" value="{{ end_time_day }}" />
+<label>日</label>
+</div>
+<div>
+<input type="submit" class="submit" value="更新" />
+</div>
+</form>
+</div>
+{% endblock %}
+

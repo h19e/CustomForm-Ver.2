@@ -1,0 +1,3 @@
+{% for key,option in optionList %}
+<input type="checkbox" id="checkbox{{ question_id }}{{ key }}" name="{{ name }}[{{ key }}]" value="{{ option.item }}" {{ option.item in answer ? 'checked=checked' : '' }} ><label for="checkbox{{ question_id }}{{ key }}">{{ option.item }}</label>
+{% endfor %}

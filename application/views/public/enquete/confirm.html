@@ -1,0 +1,16 @@
+{% extends original_design %}
+
+{% block customform %}
+<form class="default" action="/public/enquete/input/?customform_id={{ customform_id }}" method="POST" >
+
+<div>{{ message }}</div>
+
+{{ parent() }}
+
+<div>
+<input type="submit" class="submit" name="complete" value="登録" data-inline="true" />
+<input type="submit" class="submit" name="input" value="戻る" data-inline="true" />
+</div>
+
+</form>
+{% endblock %}

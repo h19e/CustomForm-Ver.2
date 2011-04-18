@@ -1,0 +1,3 @@
+{% for key,value in answer %}
+<input type="hidden" name="{{ name }}[{{ key }}]" value="{{ value }}" /><label>{{ value }}</label>
+{% endfor %}

@@ -1,0 +1,59 @@
+* {
+    margin:0px;
+    padding:0px;
+}
+
+body {
+    background-color: #fff;
+    font-family: Lucida Grande, Verdana, Sans-serif;
+    font-size: 14px;
+    color: #4F5155;
+}
+
+h1 a {
+    display: block;
+    width : 400px;
+    height : 50px;
+    margin: 10px;
+    background :url('/img/customform_logo.png') no-repeat;
+}
+
+.none {
+    display: none;
+}
+
+#container {
+    width:900px;
+    margin-left:auto;
+    margin-right:auto;
+    border: solid 0px;
+}
+
+#main {
+    width:860px;
+    margin-left:20px;
+    margin-right:20px;
+    border: solid 0px;
+}
+
+dl {
+    border: double 3px;
+    padding: 10px;
+    margin: 4px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>アンケート {% block title %}{% endblock %}</title>
+<link rel="stylesheet" type="text/css" href="/css/formstyle.css">
+<style type="text/css">
+
+body {
+ background-color: #fff;
+ margin: 40px;
+ font-family: Lucida Grande, Verdana, Sans-serif;
+ font-size: 14px;
+ color: #4F5155;
+}
+
+</style>
+</head>
+<body>
+<div id="container">
+<div id="header">
+<h1><a href="/"><span class="none">CustomForm</span></a><h1>
+</div>
+
+<div id="main">
+{% block customform %}
+
+{% for question in questionBodys %}
+<div>
+<label>{{ question.question_title }}</label><br />
+{{ question.body|raw }}
+</div>
+{% endfor %}
+
+{% endblock %}
+</div>
+
+<div id="footer">
+footer
+</div>
+
+</div>
+</body>
+</html>

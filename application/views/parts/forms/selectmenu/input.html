@@ -1,0 +1,5 @@
+<select id="selectmenu{{ question_id }}" name="{{ name }}">
+{% for key,option in optionList %}
+<option value="{{ option.item }}" {{ answer == option.item ? 'selected' : '' }} >{{ option.item }}</option>
+{% endfor %}
+</select>

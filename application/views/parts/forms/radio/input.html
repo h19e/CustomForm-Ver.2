@@ -1,0 +1,3 @@
+{% for key,option in optionList %}
+<input type="radio" id="radio{{ question_id }}{{ key }}" name="{{ name }}" value="{{ option.item }}" {{ answer == option.item ? 'checked' : '' }} ><label for="radio{{ question_id }}{{ key }}">{{ option.item }}</label>
+{% endfor %}

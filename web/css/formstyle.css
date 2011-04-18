@@ -1,0 +1,144 @@
+* {
+    font-size:14px;
+}
+
+form {
+    background: #fff;
+    border: #FF9933 dotted 1px;
+}
+
+.default {
+    width:640px;
+    float:center;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+form div {
+    padding: 8px 40px;
+}
+
+h1 {
+    background : url('/img/customform_logo.png') no-repeat;
+}
+
+h1 a {
+    display: block;
+    width : 400px;
+    height : 50px;
+}
+
+.none {
+    display: none;
+}
+
+#container {
+    width:900px;
+    margin-left:auto;
+    margin-right:auto;
+    border: solid 0px;
+}
+
+#main {
+    width:540px;
+    float:left;
+    border: solid 0px;
+    padding: 10px;
+}
+
+#side {
+    width:320px;
+    float:left;
+    border: solid 0px;
+    padding: 10px;
+}
+
+#footer {
+    width:100%;
+    clear:left;
+}
+
+
+
+.checkbox, .radio {
+    z-index: -1;
+    position: absolute;
+}
+
+.CheckBoxLabelClass {
+    background: url("http://www.webcreatorbox.com/sample/images/checkbox.png") no-repeat top left;
+    margin-right:20px;
+    padding-left:22px;
+}
+
+.radiolabel {
+    background: url("http://www.webcreatorbox.com/sample/images/radio.png") no-repeat top left;
+    margin-right:20px;
+    padding-left:22px;
+}
+
+
+.LabelSelected, .RadioSelected {
+    background-position: bottom left;
+}
+
+label {
+    color: #666;
+}
+
+.text, textarea, .dropdown {
+    border: 1px solid #ccc; 
+    padding: 2px; 
+    color: #333;
+    background: #fff; 
+    border-radius: 5px;
+
+}
+
+
+.submit {
+    border:1px solid #777;
+    padding: 4px 10px;
+    color: #fff;
+    cursor: pointer;
+    background: #f93;
+    border-radius: 5px;
+    background:
+    -moz-border-radius: 5px;
+    -moz-box-shadow: 1px 1px 1px #fff;
+
+}
+
+
+
+dl.form_list {
+    margin-bottom:10px;
+    border:solid 2px #ececec;
+    width:700px;
+    background:#ffffff;
+    padding:4px;
+    line-height:1.5em;
+}
+
+dl.form_list dt {
+    background:#cccccc;
+}
+
+dl.form_list dd {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

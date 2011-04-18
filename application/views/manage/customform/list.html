@@ -1,0 +1,32 @@
+{% extends "layout/manage.html" %}
+
+{% block title %}アンケートフォーム作成サイト CustomForm{% endblock %}
+
+{% block main %}
+
+
+<a href="/manage/customform/regist/">フォームの新規作成</a>
+
+{% for value in list %}
+<dl class="form_list">
+<dt>
+<b>{{ value.customform_id }}</b>
+<a href="/manage/customform/update/?customform_id={{ value.customform_id }}">{{ value.customform_title }}</a>
+</dt>
+<dd>
+<div>
+<a href="/manage/question/?customform_id={{ value.customform_id }}">質問管理</a>
+<a href="/manage/preview/input/?customform_id={{ value.customform_id }}" target="_blank" >プレビュー</a>
+<a href="/manage/customform/release/{{ offset }}?customform_id={{ value.customform_id }}" >本番反映</a>
+<a href="/public/enquete/input/?customform_id={{ value.customform_id }}" target="_blank" >本番</a>
+<a href="/manage/answer/summary/?customform_id={{ value.customform_id }}" >回答管理</a>
+</div>
+</dd>
+</dl>
+{% endfor %}
+{{ pagination|raw }}
+{% endblock %}
+
+{% block side %}
+{% endblock %}
+

@@ -1,0 +1,27 @@
+{% extends "layout/default.html" %}
+
+{% block title %}アンケートフォーム作成サイト CustomForm{% endblock %}
+
+{% block main %}
+main
+{% endblock %}
+
+{% block side %}
+<div>
+<form action="/" method="post">
+<div>
+<label>アカウント</label>
+<input type="text" name="account" class="text" size="20" value="{{ account }}" />
+</div>
+<div>
+<label>パスワード</label>
+<input type="password" name="password" class="text" size="20" value="" />
+</div>
+<div>
+<input type="submit" class="submit" value="ログイン" />
+<div>
+<a href="/index.php/user/register/">新規アカウント作成</a>
+</div>
+</form>
+{% endblock %}
+

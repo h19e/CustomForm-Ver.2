@@ -1,0 +1,113 @@
+{% extends "layout/default.html" %}
+
+{% block title %}アンケートフォーム作成サイト CustomForm{% endblock %}
+
+{% block main %}
+<div>
+{{ validation_errors|raw }}
+<form class="default" action="/index.php/manage/question/update/?customform_id={{ customform_id }}&question_id={{ question_id }}" method="post">
+
+<div>
+<label>質問内容</label><br />
+<input type="text" name="question_title" class="text" size="20" value="{{ question_title }}" />
+</div>
+
+<div>
+<label>入力タイプ</label><br />
+<select id="type" name="input_type">
+{% for key,value in typeOption %}
+<option value="{{ key }}" {{ input_type == key ? 'selected' : '' }} >{{ value }}</option>
+{% endfor %}
+</select>
+</div>
+
+<div>
+<label>必須</label><br />
+<input type="checkbox" name="required" value="1" {{ required == 1 ? 'checked' : '' }} >必須項目
+</div>
+
+<div>
+<label>表示制限</label><br />
+<input type="checkbox" name="disp_limit" value="1" {{ disp_limit == 1 ? 'checked' : '' }} >回答結果を公開しない
+</div>
+
+<div id="text_size">
+<label>テキストボックスサイズ</label></br />
+<input type="text" name="text_size" class="text" size="10" value="{{ text_size|default('20') }}" />
+</div>
+
+<div id="textarea_size">
+<label>テキストエリアサイズ</label><br />
+<label>高さ</label>
+<input type="text" name="textarea_rows" class="text" size="4" value="{{ textarea_rows|default('4') }}" />
+<label>幅</label>
+<input type="text" name="textarea_cols" class="text" size="4" value="{{ textarea_cols|default('40') }}" />
+</div>
+
+<div id="max_size">
+<label>最大文字数</label><br />
+<input type="text" name="max_size" class="text" size="10" value="{{ max_size }}" />
+</div>
+
+<div id="validate_type">
+<label>入力チェックタイプ</label><br />
+<select name="validate_type" >
+<option value="1">半角英数字</option>
+</select>
+</div>
+
+
+
+
+
+<div id="option_num" style="display:none;">{{ option_num }}</div>
+<div id="option">
+<label>選択肢</label>
+{% for key,option in optionList %}
+<br />
+<label>{{ key }}. </label>
+<input type="text" name="option[{{ key }}]" value="{{ option.item }}" />
+<input type="checkbox" name="option_check[{{ key }}]" value="1" {{ option.default_check == 1 ? 'checked' : '' }} >
+<label>初期チェック</label>
+<br />
+{% endfor %}
+</div>
+
+<div>
+<button type="button" id="add_button" value="" class="submit" >選択肢追加</button>
+</div>
+
+<div id="line_num">
+<label>一行表示個数</label><br />
+<input type="text" name="line_num" class="text" size="10" value="{{ line_num }}" />
+</div>
+
+<div>
+<input type="submit" class="submit" value="登録" />
+</div>
+</form>
+</div>
+<script type="text/javascript" src="/js/question.js" ></script>
+<script>
+
+
+$(function(){
+    typeChange();
+    $('#type').change(function(){
+        typeChange();
+    });
+
+    $('#add_button').click(function(){
+        var num = Number($('#option_num').html()) + 1;
+        $('#option_num').html(num);
+        $('#option').append("<br />\n<label>" + num + ". </label>" +
+"<input type=\"text\" name=\"option[" + num + "]\" value=\"\" />\n" +
+"<input type=\"checkbox\" name=\"option_check[" + num + "]\" value=\"1\" >\n" +
+"<label>初期チェック</label>" +
+"<br />");
+    });
+});
+</script>
+
+{% endblock %}
+

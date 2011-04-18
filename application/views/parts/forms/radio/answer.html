@@ -1,0 +1,12 @@
+<table>
+{% for name,count in result %}
+<tr>
+<td>
+<label>{{ name }}</label><label>({{ count }})</label> 
+</td>
+<td>
+<div style="padding:0px;margin:0px;width:{{ count * (400/max_count) }}px;height:10px;background-color:#00ff00;"></div>
+</td>
+</tr>
+{% endfor %}
+</table>

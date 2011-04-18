@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+{% block head %}
+<meta charset="utf-8">
+<title>{% block title %}Welcome to CodeIgniter{% endblock %}</title>
+<link rel="stylesheet" type="text/css" href="/css/formstyle.css">
+<script type="text/javascript" src="/js/jquery.js"></script>
+<style type="text/css">
+
+body {
+ background-color: #fff;
+ margin: 40px;
+ font-family: Lucida Grande, Verdana, Sans-serif;
+ font-size: 14px;
+ color: #4F5155;
+}
+
+</style>
+{% endblock %}
+</head>
+<body>
+{% block body %}
+<div id="container">
+<div id="header">
+{% block header %}
+<h1><a href="/"><span class="none">CustomForm</span></a><h1>
+{% endblock header %}
+</div>
+<div id="main">
+{% block main %}
+{% endblock main %}
+</div>
+<div id="side">
+{% block side %}
+{% endblock side %}
+</div>
+<div id="footer">
+{% block footer %}
+footer
+{% endblock footer %}
+</div>
+{% endblock body %}
+</div>
+</body>
+</html>
