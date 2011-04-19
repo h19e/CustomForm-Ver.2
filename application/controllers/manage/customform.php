@@ -2,40 +2,49 @@
 
 class Customform extends CI_Controller {
 
-	public function index($offset = 0)
+    private $data = array();
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        if ($this->cookie->get('user_id') == false) {
+            $this->output->set_header('Location: /manage/customform/index/');
+            return; 
+        }
+        $this->data['account'] = $this->cookie->get('account');
+
+    }
+	
+    public function index($offset = 0)
 	{
-        $limit = 3;
-        $data = array();
+        $limit = 10;
 
         $this->load->model('dao/dao_customform');
-        $data['count'] = $this->dao_customform->getCount();
-        
-        $data['list'] = $this->dao_customform->getList($limit,$offset);
+        $this->data['count'] = $this->dao_customform->getCount();
+        $this->data['list'] = $this->dao_customform->getList($limit,$offset);
         
         $this->load->model('pager');
-        $data['pagination'] = $this->pager->make($data['count'],$limit);
+        $this->data['pagination'] = $this->pager->make($this->data['count'],$limit);
         
         if ($offset > 0) {
-            $data['offset'] = $offset;
+            $this->data['offset'] = $offset;
         }
-        $this->parser->parse('manage/customform/list',$data);
-
-
+        $this->parser->parse('manage/customform/list',$this->data);
 	}
 
     public function regist()
     {
         
         if ($this->input->server('REQUEST_METHOD') == "POST") {
-            
             $this->load->library('form_validation');
             $this->form_validation->set_message('required',"%s に値が入力されていません");
             $this->form_validation->set_rules('customform_title','フォームタイトル','required');
 
             if ($this->form_validation->run() == FALSE) {
-                $data['validation_errors'] = validation_errors();
-                $data['customform_title'] = $this->input->post('customform_title');
-                $data['design_id'] = $this->input->post('design_id');
+                $this->data['validation_errors'] = validation_errors();
+                $this->data['customform_title'] = $this->input->post('customform_title');
+                $this->data['design_id'] = $this->input->post('design_id');
             
             } else {
                 //登録
@@ -49,9 +58,9 @@ class Customform extends CI_Controller {
 
         $this->load->model('dao/dao_design');
         $designList = $this->dao_design->getList();
-        $data['designList'] = $designList;
+        $this->data['designList'] = $designList;
 
-        $this->parser->parse('manage/customform/regist',$data);
+        $this->parser->parse('manage/customform/regist',$this->data);
 
     }
 
@@ -63,22 +72,24 @@ class Customform extends CI_Controller {
             
             $this->load->model('dao/dao_customform');
             $customform_id = $this->dao_customform->update();
-                
             $this->output->set_header('Location: /index.php/manage/customform/index/');
             return; 
         
         } else {
 
             $this->load->model('dao/dao_customform');
-            $data = $this->dao_customform->getInfo();
+            $info = $this->dao_customform->getInfo();
+            foreach ($info as $key => $value) {
+                $this->data[$key] = $value;
+            }
         }
 
         $this->load->model('dao/dao_design');
         $designList = $this->dao_design->getList();
-        $data['designList'] = $designList;
+        $this->data['designList'] = $designList;
         
         
-        $this->parser->parse('manage/customform/update',$data);
+        $this->parser->parse('manage/customform/update',$this->data);
     }
 
     public function release($offset)

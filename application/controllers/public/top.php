@@ -2,9 +2,27 @@
 
 class Top extends CI_Controller {
 
+    private $data = array();
+    
+    public function logout()
+    {
+        $this->cookie->clean('user_id');
+        $this->output->set_header('Location: /');
+        return true;
+    }
+
+
+    public function sandbox()
+    {
+        $this->cookie->set('user_id',1);
+        $this->cookie->set('account','sandbox-user');
+        $this->output->set_header('Location: /manage/customform/index/');
+        return true;
+    }
+
+
     public function index()
     {
-        $data = array();
 
         if ($this->input->server('REQUEST_METHOD') == "POST") {
 
@@ -13,12 +31,13 @@ class Top extends CI_Controller {
 
             if ($result !== false) {       
                 $this->cookie->set('user_id',$result['user_id']);
+                $this->cookie->set('account',$result['account']);
                 $this->output->set_header('Location: /manage/customform/index/');
             }
-            $data['account'] = $this->input->post('account');
+            $this->data['account'] = $this->input->post('account');
         }
 
-        $this->parser->parse('top',$data);
+        $this->parser->parse('public/top/index',$this->data);
     }
 
 }

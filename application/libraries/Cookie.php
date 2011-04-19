@@ -42,4 +42,10 @@ class My_Cookie
         }
         return false;
     }
+	
+    public function clean($name)
+	{
+		setcookie($name,"",time() - 3600,"/", self::DOMAIN_FOR_COOKIE);
+		setcookie("iv_" . $name,"",time() - 3600,"/", self::DOMAIN_FOR_COOKIE);
+	}
 }

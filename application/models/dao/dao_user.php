@@ -11,7 +11,7 @@ class Dao_user extends CI_Model
     
     public function loginCheck()
     {
-        $stmt = $this->pdo->prepare('select user_id from user 
+        $stmt = $this->pdo->prepare('select user_id,account from user 
                 where account = :account
                 and password = :password');
         $stmt->bindValue(':account',$this->input->post('account'));
