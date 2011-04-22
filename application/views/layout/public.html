@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+{% block head %}
+<meta charset="utf-8">
+<title>{% block title %}CustomForm{% endblock %}</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css">
+<script type="text/javascript" src="/js/jquery.js"></script>
+<style type="text/css">
+{% block style %}
+
+{% endblock %}
+</style>
+{% endblock %}
+</head>
+
+<body>
+<div id="container">
+<header>
+{% block header %}
+<h1><a href="/"><span class="none">CustomForm</span></a><h1>
+{% endblock header %}
+</header>
+
+<div id="main">
+{% block main %}
+{% endblock main %}
+</div>
+
+<aside>
+{% block side %}
+{% endblock side %}
+</aside>
+
+<footer>
+{% block footer %}
+<p>Copyrights(c)2011. h19e All Right Reserved.</p>
+{% endblock footer %}
+</footer>
+
+</div>
+</body>
+</html>

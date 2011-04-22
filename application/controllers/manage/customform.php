@@ -9,7 +9,7 @@ class Customform extends CI_Controller {
         parent::__construct();
 
         if ($this->cookie->get('user_id') == false) {
-            $this->output->set_header('Location: /manage/customform/index/');
+            $this->output->set_header('Location: /');
             return; 
         }
         $this->data['account'] = $this->cookie->get('account');

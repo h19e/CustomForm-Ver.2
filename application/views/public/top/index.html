@@ -1,13 +1,118 @@
-{% extends "layout/default.html" %}
+{% extends "layout/public.html" %}
 
 {% block title %}アンケートフォーム作成サイト CustomForm{% endblock %}
 
-{% block main %}
-main
+{% block style %}
+
+#ad {
+    width:468px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+section {
+    border: solid 1px #b98c46;
+    padding: 0px;
+    color: #666666;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -o-border-radius: 6px;
+    -ms-border-radius: 6px;
+}
+
+section p {
+    padding: 8px;
+}
+
+section .form {
+    padding: 8px;
+}
+
+
+section h2 {
+    background-color: #b98c46;
+    color: #FFffFF;
+    padding: 4px;
+    -moz-border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    -o-border-radius: 6px 6px 0 0;
+    -ms-border-radius: 6px 6px 0 0;
+}
+
+
 {% endblock %}
 
+
+{% block main %}
+<section>
+<h2>このサイトについて</h2>
+<p>
+CustomFormはWEB上で自由にアンケートフォームを作成することが出来ます。 
+アンケートフォームの作成にはHTMLや、CGIの専門知識はいりません。 
+作成したアンケートは、固有のURLが同時に生成されますので、自分のブログにリンクを張ったり、メールで友達に送ったり自由に活用ください。 
+回答結果は管理画面で確認出来る他、一般に公開することも出来ます。
+</p>
+</section>
+
+<div id="ad">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-5239845649434559";
+/* customform_top */
+google_ad_slot = "0330838536";
+google_ad_width = 468;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+<section>
+<h2>お知らせ</h2>
+<p>
+提供するサービスはすべて無料です。 
+アカウント作成にはメールアドレスは不要です。 
+SSL対応の予定はありませんので、個人情報を含むアンケートに関しては 
+行わないでください。また、作成したアンケートに対して起こりうる全ての問題に対して全て自己責任でお願いします。
+</p>
+</section>
+
+<div class="spacer"><br /></div>
+
+<section>
+<h2>注意</h2>
+<p>
+このサービスは、今後も無料でお使いいただける様努力致しますが、場合により予告なく閉鎖する場合もございます。 
+重要なアンケートの作成に関しては十分ご検討くださいますようお願いします。
+</p>
+</section>
+
+
+{% endblock %}
+
+
 {% block side %}
-<div>
+<div id="LRec">
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-5239845649434559";
+/* LRec */
+google_ad_slot = "4382101299";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+</div>
+
+
+<section>
+<h2>ログイン</h2>
+<div class="form">
 <form action="/" method="post">
 <div>
 <label>アカウント</label>
@@ -23,7 +128,7 @@ main
 <a href="/public/register/input/">新規アカウント作成</a>
 </div>
 </form>
-</div>
+</section>
 
 <div style="padding:10px">
 <a href="/public/top/sandbox/" >今すぐアンケートフォームを作ってみる</a>
