@@ -36,7 +36,7 @@ body {
     border: solid 0px;
 }
 
-aside {
+#side {
     width:300px;
     float:left;
     padding: 0 20px 0px 10px;
@@ -51,7 +51,7 @@ h1 {
     padding: 10px 0 10px 20px;
 }
 
-h1 a {
+#title_logo {
 background: url('/img/customform_logo.png') no-repeat;
 display: block;
 width: 400px;

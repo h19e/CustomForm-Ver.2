@@ -1,43 +1,92 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-{% block head %}
 <meta charset="utf-8">
-<title>{% block title %}Welcome to CodeIgniter{% endblock %}</title>
-<link rel="stylesheet" type="text/css" href="/css/manage.css">
+<title>{% block title %}CustomForm{% endblock %}</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css">
 <script type="text/javascript" src="/js/jquery.js"></script>
 <style type="text/css">
 
+#account {
+    position: absolute;
+    top: 0;
+    text-align:right;
+    width: 920px;
+}
 
+#account ul {
+    list-style-type: none;
+}
+
+#account li {
+    float: right;
+}
 
 </style>
+{% block style %} 
 {% endblock %}
+
 </head>
+
 <body>
-{% block body %}
 <div id="container">
-<div id="header">
-{% block header %}
-<h1><a href="/"><span class="none">CustomForm</span></a><h1>
-<h2><a href="/manage/customform/index/">TOP</a></h2>
-<div><a href="/top/logout/">ログアウト</a></div>
-<div>{{ account }}</div>
-{% endblock header %}
+<header>
+<h1><a href="/" id="title_logo"><span class="none">CustomForm</span></a><h1>
+<div id="account">
+<ul>
+<li><a href="/">アカウント管理</a></li>
+<li><a href="/top/logout/">ログアウト</a> | </li>
+<li>{{ account }} | </li>
+</ul>
 </div>
+<nav>
+{% block navi %}
+> アンケートフォーム一覧
+{% endblock %}
+</nav>
+</header>
+
 <div id="main">
 {% block main %}
 {% endblock main %}
 </div>
+
 <div id="side">
+<div id="LRec">
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-5239845649434559";
+/* LRec */
+google_ad_slot = "4382101299";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+</div>
+
 {% block side %}
+<aside>
+<ul>
+<li>基本情報変種</li>
+<li>本番反映:編集した内容を本番のフォームに反映します</li>
+<li>基本情報変種</li>
+
+
+
+</aside>
 {% endblock side %}
+
 </div>
-<div id="footer">
+
+<footer>
 {% block footer %}
-footer
+<p>Copyrights(c)2011. h19e All Right Reserved.</p>
 {% endblock footer %}
-</div>
-{% endblock body %}
+</footer>
 </div>
 </body>
 </html>

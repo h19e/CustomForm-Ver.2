@@ -2,11 +2,8 @@
 
 {% block title %}アンケートフォーム作成サイト CustomForm{% endblock %}
 
-{% block side %}
-main
-{% endblock %}
-
 {% block main %}
+
 <div>
 {{ validation_errors|raw }}
 <form class="default" action="/index.php/manage/customform/update/" method="post">
@@ -15,6 +12,7 @@ main
 <label>フォームタイトル</label><br />
 <input type="text" name="customform_title" class="text" size="20" value="{{ customform_title }}" />
 </div>
+<!--
 <div>
 <label>フォームタイプ</label><br />
 <select name="design_id">
@@ -23,6 +21,7 @@ main
 {% endfor %}
 </select>
 </div>
+-->
 <div>
 <label>入力画面メッセージ</label><br />
 <textarea rows="4" cols="40" name="input_message" class="text" >{{ input_message }}</textarea>

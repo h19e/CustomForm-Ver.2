@@ -8,6 +8,7 @@ class Customform extends CI_Controller {
     {
         parent::__construct();
 
+
         if ($this->cookie->get('user_id') == false) {
             $this->output->set_header('Location: /');
             return; 
@@ -23,6 +24,7 @@ class Customform extends CI_Controller {
         $this->load->model('dao/dao_customform');
         $this->data['count'] = $this->dao_customform->getCount();
         $this->data['list'] = $this->dao_customform->getList($limit,$offset);
+//var_dump($this->data['list']);
         
         $this->load->model('pager');
         $this->data['pagination'] = $this->pager->make($this->data['count'],$limit);

@@ -6,11 +6,9 @@
 <title>{% block title %}CustomForm{% endblock %}</title>
 <link rel="stylesheet" type="text/css" href="/css/base.css">
 <script type="text/javascript" src="/js/jquery.js"></script>
-<style type="text/css">
 {% block style %}
 
 {% endblock %}
-</style>
 {% endblock %}
 </head>
 
@@ -18,7 +16,7 @@
 <div id="container">
 <header>
 {% block header %}
-<h1><a href="/"><span class="none">CustomForm</span></a><h1>
+<h1><a href="/" id="title_logo"><span class="none">CustomForm</span></a><h1>
 {% endblock header %}
 </header>
 
@@ -27,10 +25,10 @@
 {% endblock main %}
 </div>
 
-<aside>
+<div id="side">
 {% block side %}
 {% endblock side %}
-</aside>
+</div>
 
 <footer>
 {% block footer %}

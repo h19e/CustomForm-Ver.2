@@ -33,6 +33,7 @@ class Top extends CI_Controller {
                 $this->cookie->set('user_id',$result['user_id']);
                 $this->cookie->set('account',$result['account']);
                 $this->output->set_header('Location: /manage/customform/index/');
+                return true;
             }
             $this->data['account'] = $this->input->post('account');
         }

@@ -2,24 +2,129 @@
 
 {% block title %}アンケートフォーム作成サイト CustomForm{% endblock %}
 
+{% block style %}
+<style type="text/css">
+
+.form_list dt {
+    padding: 2px 10px;
+    border: solid 0px #aaaaaa;
+    background-color: #b98c46;
+    color: #ffffff;
+    font-weight: bold;
+    -moz-border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    -o-border-radius: 6px 6px 0 0;
+    -ms-border-radius: 6px 6px 0 0;
+
+
+} 
+
+.form_list dd {
+    border: solid 1px #aaaaaa;
+    background-color: #ffffff;
+    margin: 0px 0 14px 0;
+    height: 120px;
+    -moz-border-radius: 0 0 6px 6px ;
+    -webkit-border-radius: 0 0 6px 6px ;
+    -o-border-radius: 0 0 6px 6px ;
+    -ms-border-radius: 0 0 6px 6px ;
+} 
+
+.menu {
+    padding: 8px;
+}
+
+
+a {
+    color: #b98c46;
+}
+
+.menu a {
+    font-size: 16px;
+    color: #b98c46;
+}
+
+.menu span {
+    padding: 0 10px;
+}
+
+p {
+    padding: 2px;
+}
+
+.date {
+    padding: 2px;
+    font-size: 12px;
+}
+
+.top {
+    float:left;
+    width: 420px;
+    border: solid 0px;
+}
+
+.bottom {
+    float:left;
+    width: 160px;
+    padding: 10px 6px;
+    border: solid 0px;
+}
+
+.normal {
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    width: 140px;
+    padding: 1px 12px;
+    margin: 4px;
+    background: -moz-linear-gradient(
+        top,
+        #948c8b 0%,
+        #d6d6d6);
+    background: -webkit-gradient(
+        linear, left top, left bottom,
+        from(#948c8b),
+        to(#d6cece));
+    border: 1px solid #1c0606;
+}
+
+
+</style>
+{% endblock %}
+
+
+
 {% block main %}
-
-
+<!--
 <a href="/manage/customform/regist/">フォームの新規作成</a>
+-->
 
 {% for value in list %}
 <dl class="form_list">
 <dt>
-<b>{{ value.customform_id }}</b>
+<!--
+{{ value.customform_id }}
 <a href="/manage/customform/update/?customform_id={{ value.customform_id }}">{{ value.customform_title }}</a>
+-->
+{{ value.customform_title }}
 </dt>
 <dd>
-<div>
-<a href="/manage/question/?customform_id={{ value.customform_id }}">質問管理</a>
-<a href="/manage/preview/input/?customform_id={{ value.customform_id }}" target="_blank" >プレビュー</a>
-<a href="/manage/customform/release/{{ offset }}?customform_id={{ value.customform_id }}" >本番反映</a>
-<a href="/public/enquete/input/?customform_id={{ value.customform_id }}" target="_blank" >本番</a>
-<a href="/manage/answer/summary/?customform_id={{ value.customform_id }}" >回答管理</a>
+<div class="top">
+<nav class="menu">
+<span><a href="/manage/customform/update/?customform_id={{ value.customform_id }}">基本情報編集</a></span>
+<span><a href="/manage/question/?customform_id={{ value.customform_id }}">質問管理</a></span>
+<span><a href="/manage/answer/summary/?customform_id={{ value.customform_id }}" >回答管理</a></span>
+</nav>
+<p>デザインテンプレート [ {{ value.template_name }} ] <a href="">変更</a></p>
+<p>アンケート期限 [ {{ value.end_time|date("Y/m/d") }} ] </p>
+<p class="date">登録日時:{{ value.create_time|date("Y/m/d H:i:s") }}&nbsp;&nbsp;更新日時:</label>{{ value.update_time|date("Y/m/d H:i:s") }}</p>
+</div>
+<div class="bottom">
+<a href="/manage/preview/input/?customform_id={{ value.customform_id }}" target="_blank"><button class="normal" >プレビュー</button></a>
+<a href="/manage/customform/release/{{ offset }}?customform_id={{ value.customform_id }}"><button class="normal" >本番反映</button></a>
+<button class="normal" >削除</button>
 </div>
 </dd>
 </dl>
@@ -27,6 +132,4 @@
 {{ pagination|raw }}
 {% endblock %}
 
-{% block side %}
-{% endblock %}
 
