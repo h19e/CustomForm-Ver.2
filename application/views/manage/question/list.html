@@ -1,20 +1,78 @@
-{% extends "layout/default.html" %}
+{% extends "layout/manage.html" %}
 
 {% block title %}アンケートフォーム作成サイト CustomForm{% endblock %}
+
+{% block style %}
+
+<script src="/js/ui/jquery.ui.core.js"></script>
+<script src="/js/ui/jquery.ui.widget.js"></script>
+<script src="/js/ui/jquery.ui.mouse.js"></script>
+<script src="/js/ui/jquery.ui.sortable.js"></script>
+
+<style type="text/css" >
+
+#sortable { 
+    list-style-type: 
+    none; margin: 0; 
+    padding: 0; 
+    width: 400px; 
+}
+#sortable li { 
+    margin: 0 3px 10px 3px; 
+    padding: 4px; 
+    height: 18px; 
+    border: dotted 1px #b98589;
+    background-color: #ffffff;
+    cursor: move;
+}
+#sortable li span {  
+}
+
+
+</style>
+<script>
+$(function() {
+    
+    var option = {
+        stop : function(){
+            var data=[];
+            $("li","#sortable").each(function(i,item){
+                data.push(item.value);
+            });
+            $('#result').load('/manage/question/sort?data=' + data);
+            
+        }
+    };
+
+    $("#sortable").sortable(option);
+});
+</script>
+{% endblock %}
+
+
+{% block navi %}
+<a href="/">トップ</a> &gt <a href="/manage/customform/index/">アンケートフォーム一覧</a> &gt 質問管理
+{% endblock %}
+
 
 {% block main %}
 <a href="/manage/question/regist/?customform_id={{ customform_id }}">質問追加</a>
 
-<table border="1">
+<ul id="sortable">
 {% for value in list %}
-<tr>
-<td>
-<a href="/manage/question/update/?customform_id={{ customform_id }}&question_id={{ value.question_id }}">{{ value.question_title }}</a>
-</td>
-</tr>
+<li class="ui-state-default" value="{{ value.question_id }}">
+<span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+<span><a href="/manage/question/update/?customform_id={{ customform_id }}&question_id={{ value.question_id }}">{{ value.question_title }}</a></span>
+<span>{{ value.input_type }}</span>
+<span>{{ value.required }}</span>
+<span class="clear">{{ disp_limit }}&nbsp;</span>
+</li>
 {% endfor %}
-</table>
+</ul>
+
+<div id="result"></div>
 {% endblock %}
+
 
 {% block side %}
 {% endblock %}

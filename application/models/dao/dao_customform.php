@@ -23,7 +23,7 @@ class Dao_customform extends CI_Model
         $customform = $stmt->fetch(PDO::FETCH_ASSOC);
         
         //質問
-        $stmt = $this->pdo->prepare('select * from question where customform_id = :customform_id');
+        $stmt = $this->pdo->prepare('select * from question where customform_id = :customform_id order by sort_number asc');
         $stmt->bindValue(':customform_id',$this->input->get('customform_id'));
         $stmt->execute();
         $questionList = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -156,7 +156,6 @@ class Dao_customform extends CI_Model
                 input_message = :input_message,
                 confirm_message = :confirm_message,
                 complete_message = :complete_message,
-                design_id = :design_id,
                 end_time = :end_time,
                 update_time = :update_time
                 where customform_id = :customform_id
@@ -168,7 +167,6 @@ class Dao_customform extends CI_Model
         $stmt->bindValue(':input_message',$this->input->post('input_message')); 
         $stmt->bindValue(':confirm_message',$this->input->post('confirm_message')); 
         $stmt->bindValue(':complete_message',$this->input->post('complete_message')); 
-        $stmt->bindValue(':design_id',$this->input->post('design_id')); 
         $stmt->bindValue(':end_time',$end_time); 
         $stmt->bindValue(':update_time',$current_time); 
 

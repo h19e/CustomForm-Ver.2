@@ -24,6 +24,7 @@ class Top extends CI_Controller {
     public function index()
     {
 
+
         if ($this->input->server('REQUEST_METHOD') == "POST") {
 
             $this->load->model('dao/dao_user');

@@ -13,11 +13,12 @@ class Dao_question extends CI_Model
     public function getList()
     {
 
-        $stmt = $this->pdo->prepare('select question_id,question_title 
+        $stmt = $this->pdo->prepare('select * 
                 from question q inner join customform c 
                 on q.customform_id = c.customform_id
                 where q.customform_id = :customform_id 
-                and c.user_id = :user_id ');
+                and c.user_id = :user_id 
+                order by sort_number asc ');
         $stmt->bindValue(':customform_id',$this->input->get('customform_id'));
         $stmt->bindValue(':user_id',$this->cookie->get('user_id'));
         $stmt->execute();
@@ -131,6 +132,20 @@ class Dao_question extends CI_Model
 
         return $question_id;
     }
+
+    public function sort($sort) 
+    {
+        $stmt = $this->pdo->prepare('update question set 
+                sort_number = :sort_number
+                where question_id = :question_id ');
+        
+        foreach ($sort as $key => $value) {
+            $stmt->bindValue(':sort_number',$key + 1);
+            $stmt->bindValue(':question_id',$value);
+            $stmt->execute();
+        }
+    }
+
 
 
 }

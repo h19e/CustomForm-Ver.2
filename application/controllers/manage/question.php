@@ -11,6 +11,16 @@ class Question extends CI_Controller {
 
 	}
 
+    public function sort()
+    {
+        $data = $this->input->get('data');
+        $sort = explode(",",$data);
+        $this->load->model('dao/dao_question');
+        $this->dao_question->sort($sort);
+
+    }
+
+
     public function regist()
     {
         $this->load->model('input_type');
