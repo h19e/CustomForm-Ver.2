@@ -2,47 +2,82 @@
 
 {% block title %}アンケートフォーム作成サイト CustomForm{% endblock %}
 
+
+
+
+{% block style %}
+<style type="text/css" >
+
+.default {
+    margin: 0px 40px 10px 40px;
+    padding: 10px;
+    border: dotted 1px #b98c46;
+}
+
+.question dt {
+    font-weight:bold;
+    padding: 2px;
+}
+
+.question dd {
+    font-weight: bold;
+    padding: 4px 8px;
+    margin-bottom: 12px;
+}
+
+.text {
+    font-size: 120%;
+    font-weight: bold;
+    padding: 4px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -o-border-radius: 6px;
+    -ms-border-radius: 6px;
+}
+
+
+
+</style>
+
+{% endblock %}
+
+{% block navi %}
+&gt <a href="/manage/customform/index/">アンケートフォーム一覧</a> &gt 基本情報編集
+{% endblock %}
+
 {% block main %}
 
 <div>
 {{ validation_errors|raw }}
 <form class="default" action="/index.php/manage/customform/update/" method="post">
 <input type="hidden" name="customform_id" value="{{ customform_id }}" />
-<div>
-<label>フォームタイトル</label><br />
-<input type="text" name="customform_title" class="text" size="20" value="{{ customform_title }}" />
-</div>
-<!--
-<div>
-<label>フォームタイプ</label><br />
-<select name="design_id">
-{% for value in designList %}
-<option value="{{ value.design_id }}" {{ design_id == value.design_id ? 'selected' : '' }} >{{ value.design_type }}</option>
-{% endfor %}
-</select>
-</div>
--->
-<div>
-<label>入力画面メッセージ</label><br />
+
+<dl class="question">
+<dt>| フォームタイトル</dt>
+<dd>
+<input type="text" name="customform_title" class="text" size="40" value="{{ customform_title }}" />
+</dd>
+<dt>入力画面メッセージ</dt>
+<dd>
 <textarea rows="4" cols="40" name="input_message" class="text" >{{ input_message }}</textarea>
-</div>
-<div>
-<label>確認画面メッセージ</label><br />
+</dd>
+<dt>確認画面メッセージ</dt>
+<dd>
 <textarea rows="4" cols="40" name="confirm_message" class="text" >{{ confirm_message }}</textarea>
-</div>
-<div>
-<label>完了画面メッセージ</label><br />
+</dd>
+<dt>完了画面メッセージ</dt>
+<dd>
 <textarea rows="4" cols="40" name="complete_message" class="text" >{{ complete_message }}</textarea>
-</div>
-<div>
-<label>アンケート回答期限</label><br />
+</dd>
+<dt>アンケート回答期限</dt>
+<dd>
 <input type="text" name="end_time_year" class="text" size="4" value="{{ end_time_year }}" />
 <label>年</label>
 <input type="text" name="end_time_month" class="text" size="2" value="{{ end_time_month }}" />
 <label>月</label>
 <input type="text" name="end_time_day" class="text" size="2" value="{{ end_time_day }}" />
 <label>日</label>
-</div>
+</dd>
 <div>
 <input type="submit" class="submit" value="更新" />
 </div>

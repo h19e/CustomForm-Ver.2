@@ -12,13 +12,26 @@
 class My_Dao 
 {
 
-    const DSN = 'mysql:host=localhost; dbname=customform';
-    const USER = 'h19e';
-    const PASSWORD = 'password';
-
     public function __construct()
     {
-        $this->pdo = new PDO(self::DSN,self::USER,self::PASSWORD);
+		
+        $file_path = APPPATH.'config/'.ENVIRONMENT.'/database'.EXT;
+    	
+		if ( ! file_exists($file_path))
+		{
+			log_message('debug', 'Database config for '.ENVIRONMENT.' environment is not found. Trying global config.');
+			$file_path = APPPATH.'config/database'.EXT;
+			
+			if ( ! file_exists($file_path))
+			{
+				continue;
+			}
+		}
+		
+		include($file_path);
+        $dsn = $db['default']['dbdriver'] . ":host=" . $db['default']['hostname'] . "; ";
+        $dsn .= "dbname=" . $db['default']['database'];
+        $this->pdo = new PDO($dsn,$db['default']['username'],$db['default']['password']);
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         $this->pdo->setAttribute(PDO::ATTR_ORACLE_NULLS,PDO::NULL_TO_STRING);
     }

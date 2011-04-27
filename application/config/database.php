@@ -41,10 +41,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = '127.0.0.1:3306';
-$db['default']['username'] = 'h19e';
-$db['default']['password'] = 'password';
-$db['default']['database'] = 'customform';
+$db['default']['hostname'] = 'localhost';
+$db['default']['username'] = 'xxxxxxxxxxxxx';
+$db['default']['password'] = 'xxxxxxxxxxxxx';
+$db['default']['database'] = 'database';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = FALSE;
