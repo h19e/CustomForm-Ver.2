@@ -11,7 +11,7 @@
     padding: 10px;
 }
 
-section {
+#section {
     border: solid 1px #b98c46;
     padding: 0px;
     color: #666666;
@@ -21,15 +21,15 @@ section {
     -ms-border-radius: 6px;
 }
 
-section p {
+#section p {
     padding: 8px;
 }
 
-section .form {
+#section .form {
     padding: 10px;
 }
 
-section h2 {
+#section h2 {
     background-color: #b98c46;
     color: #FFffFF;
     padding: 4px;
@@ -95,7 +95,7 @@ section h2 {
 
 
 {% block main %}
-<section>
+<div id="section">
 <h2>このサイトについて</h2>
 <p>
 CustomFormはWEB上で自由にアンケートフォームを作成することが出来ます。 
@@ -103,7 +103,7 @@ CustomFormはWEB上で自由にアンケートフォームを作成すること�
 作成したアンケートは、固有のURLが同時に生成されますので、自分のブログにリンクを張ったり、メールで友達に送ったり自由に活用ください。 
 回答結果は管理画面で確認出来る他、一般に公開することも出来ます。
 </p>
-</section>
+</div>
 
 <div id="ad">
 <script type="text/javascript"><!--
@@ -119,7 +119,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
 </div>
 
-<section>
+<div id="section">
 <h2>お知らせ</h2>
 <p>
 提供するサービスはすべて無料です。 
@@ -127,17 +127,17 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 SSL対応の予定はありませんので、個人情報を含むアンケートに関しては 
 行わないでください。また、作成したアンケートに対して起こりうる全ての問題に対して全て自己責任でお願いします。
 </p>
-</section>
+</div>
 
 <div class="spacer"><br /></div>
 
-<section>
+<div id="section">
 <h2>注意</h2>
 <p>
 このサービスは、今後も無料でお使いいただける様努力致しますが、場合により予告なく閉鎖する場合もございます。 
 重要なアンケートの作成に関しては十分ご検討くださいますようお願いします。
 </p>
-</section>
+</div>
 
 
 {% endblock %}
@@ -161,7 +161,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </div>
 
 
-<section>
+<div id="section">
 <h2>ログイン</h2>
 
 <div class="form">
@@ -181,8 +181,8 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 + <a href="/public/register/input/">新規アカウント作成</a>
 </div>
 </form>
-
-</section>
+</div>
+</div>
 
 <div style="padding:10px">
 <a href="/public/top/sandbox/" >今すぐアンケートフォームを作ってみる</a>

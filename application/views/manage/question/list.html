@@ -4,35 +4,62 @@
 
 {% block style %}
 
-<script src="/js/ui/jquery.ui.core.js"></script>
-<script src="/js/ui/jquery.ui.widget.js"></script>
-<script src="/js/ui/jquery.ui.mouse.js"></script>
-<script src="/js/ui/jquery.ui.sortable.js"></script>
-
 <style type="text/css" >
 
 #sortable { 
-    list-style-type: 
-    none; margin: 0; 
+    list-style-type: none; 
+    margin: 0; 
     padding: 0; 
-    width: 400px; 
+    width: 600px; 
+    background-color: #ffffff;
 }
 #sortable li { 
     margin: 0 3px 10px 3px; 
-    padding: 4px; 
+    padding: 14px 0 ;
     height: 18px; 
-    border: dotted 1px #b98589;
+    border: solid 1px #b98589;
     background-color: #ffffff;
+    padding-left: 10px;
     cursor: move;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -o-border-radius: 6px;
+    -ms-border-radius: 6px;
+
 }
-#sortable li span {  
+.col1 {  
+    display: block;
+    float:left;
+    width: 240px;
 }
 
+.col2 {
+    display: block;
+    float: left;
+    width: 100px;
+    padding-left: 10px;
+    border-left: solid 1px #b98589;
+}
+
+
+.plus {
+    font-weight: bold;
+    font-size: 16px;
+    padding: 1px 5px;
+    border: double 3px #ffffff;
+    background-color: #b98589;
+    color: #ffffff;
+}
+
+.add {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
 
 </style>
 <script>
 $(function() {
-    
     var option = {
         stop : function(){
             var data=[];
@@ -40,10 +67,8 @@ $(function() {
                 data.push(item.value);
             });
             $('#result').load('/manage/question/sort?data=' + data);
-            
         }
     };
-
     $("#sortable").sortable(option);
 });
 </script>
@@ -56,19 +81,22 @@ $(function() {
 
 
 {% block main %}
-<a href="/manage/question/regist/?customform_id={{ customform_id }}">質問追加</a>
 
 <ul id="sortable">
 {% for value in list %}
-<li class="ui-state-default" value="{{ value.question_id }}">
-<span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-<span><a href="/manage/question/update/?customform_id={{ customform_id }}&question_id={{ value.question_id }}">{{ value.question_title }}</a></span>
-<span>{{ value.input_type }}</span>
-<span>{{ value.required }}</span>
-<span class="clear">{{ disp_limit }}&nbsp;</span>
+<li value="{{ value.question_id }}">
+<span class="col1">
+<a href="/manage/question/update/?customform_id={{ customform_id }}&question_id={{ value.question_id }}">{{ value.question_title }}</a>
+</span>
+<span class="col2">{{ value.input_type }}</span>
+<span class="col2">{{ value.required == 1 ? "必須" : "任意" }}</span>
+<span class="col2">{{ disp_limit == 1 ? "非公開" : "公開" }}</span>
 </li>
 {% endfor %}
 </ul>
+
+<a class="add" href="/manage/question/regist/?customform_id={{ customform_id }}"><span class="plus">+</span>質問追加</a>
+
 
 <div id="result"></div>
 {% endblock %}

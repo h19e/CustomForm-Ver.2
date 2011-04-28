@@ -1,35 +1,46 @@
-{% extends "layout/default.html" %}
+{% extends "layout/manage.html" %}
 
 {% block title %}アンケートフォーム作成サイト CustomForm{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="/css/base-form.css">
+{% endblock %}
+
+{% block navi %}
+<a href="/">トップ</a> &gt <a href="/manage/customform/index/">アンケートフォーム一覧</a> 
+&gt <a href="/manage/question/index/">質問管理</a> &gt 質問編集画面
+{% endblock %}
+
 
 {% block main %}
 <div>
 {{ validation_errors|raw }}
 <form class="default" action="/index.php/manage/question/update/?customform_id={{ customform_id }}&question_id={{ question_id }}" method="post">
 
-<div>
-<label>質問内容</label><br />
-<input type="text" name="question_title" class="text" size="20" value="{{ question_title }}" />
-</div>
+<dl class="question">
+<dt>質問内容</dt>
+<dd>
+<input type="text" name="question_title" class="text" size="40" value="{{ question_title }}" />
+</dd>
 
-<div>
-<label>入力タイプ</label><br />
-<select id="type" name="input_type">
+<dt>入力タイプ</dt>
+<dd>
+<select id="type" class="text" name="input_type">
 {% for key,value in typeOption %}
 <option value="{{ key }}" {{ input_type == key ? 'selected' : '' }} >{{ value }}</option>
 {% endfor %}
 </select>
-</div>
+</dd>
 
-<div>
-<label>必須</label><br />
-<input type="checkbox" name="required" value="1" {{ required == 1 ? 'checked' : '' }} >必須項目
-</div>
+<dt>必須</dt>
+<dd>
+<input type="checkbox" name="required" value="1" {{ required == 1 ? 'checked' : '' }} > 必須項目
+</dd>
 
-<div>
-<label>表示制限</label><br />
-<input type="checkbox" name="disp_limit" value="1" {{ disp_limit == 1 ? 'checked' : '' }} >回答結果を公開しない
-</div>
+<dt>表示制限</dt>
+<dd>
+<input type="checkbox" name="disp_limit" value="1" {{ disp_limit == 1 ? 'checked' : '' }} > 回答結果を公開しない
+</dd>
 
 <div id="text_size">
 <label>テキストボックスサイズ</label></br />
@@ -58,20 +69,18 @@
 
 
 
-
-
 <div id="option_num" style="display:none;">{{ option_num }}</div>
-<div id="option">
-<label>選択肢</label>
+<dt>選択肢</dt>
+<dd id="option">
 {% for key,option in optionList %}
 <br />
 <label>{{ key }}. </label>
-<input type="text" name="option[{{ key }}]" value="{{ option.item }}" />
+<input type="text" class="text" name="option[{{ key }}]" value="{{ option.item }}" />
 <input type="checkbox" name="option_check[{{ key }}]" value="1" {{ option.default_check == 1 ? 'checked' : '' }} >
 <label>初期チェック</label>
 <br />
 {% endfor %}
-</div>
+</dd>
 
 <div>
 <button type="button" id="add_button" value="" class="submit" >選択肢追加</button>
@@ -101,7 +110,7 @@ $(function(){
         var num = Number($('#option_num').html()) + 1;
         $('#option_num').html(num);
         $('#option').append("<br />\n<label>" + num + ". </label>" +
-"<input type=\"text\" name=\"option[" + num + "]\" value=\"\" />\n" +
+"<input type=\"text\" class=\"text\" name=\"option[" + num + "]\" value=\"\" />\n" +
 "<input type=\"checkbox\" name=\"option_check[" + num + "]\" value=\"1\" >\n" +
 "<label>初期チェック</label>" +
 "<br />");

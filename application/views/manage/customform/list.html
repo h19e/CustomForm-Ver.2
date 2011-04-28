@@ -83,6 +83,12 @@ p {
     border: solid 0px;
 }
 
+.submit {
+    width: 140px;
+    padding: 1px 12px;
+    margin: 4px;
+}
+
 .normal {
     cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
@@ -107,6 +113,10 @@ p {
 </style>
 {% endblock %}
 
+
+{% block navi %}
+<a href="/">トップ</a> &gt アンケートフォーム一覧</a>
+{% endblock %}
 
 
 {% block main %}
@@ -135,9 +145,9 @@ p {
 <p class="date">登録日時:{{ value.create_time|date("Y/m/d H:i:s") }}&nbsp;&nbsp;更新日時:</label>{{ value.update_time|date("Y/m/d H:i:s") }}</p>
 </div>
 <div class="bottom">
-<a href="/manage/preview/input/?customform_id={{ value.customform_id }}" target="_blank"><button class="normal" >プレビュー</button></a>
-<a href="/manage/customform/release/{{ offset }}?customform_id={{ value.customform_id }}"><button class="normal" >本番反映</button></a>
-<button class="normal" >削除</button>
+<a href="/manage/preview/input/?customform_id={{ value.customform_id }}" target="_blank"><button class="submit" >プレビュー</button></a>
+<a href="/manage/customform/release/{{ offset }}?customform_id={{ value.customform_id }}"><button class="submit" >本番反映</button></a>
+<button class="submit" >削除</button>
 </div>
 </dd>
 </dl>
