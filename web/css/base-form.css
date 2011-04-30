@@ -1,0 +1,42 @@
+
+.form-frame {
+    margin: 0px 20px 10px 20px;
+    padding: 20px 40px;
+    border: dotted 1px #b98c46;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -o-border-radius: 6px;
+    -ms-border-radius: 6px;
+}
+
+.form-item dt {
+    padding: 2px;
+}
+
+.form-item dd {
+    padding: 4px 8px;
+    margin-bottom: 12px;
+}
+
+.text {
+    border: 1px solid #cccccc;
+    padding: 4px;
+    color: #666666;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -o-border-radius: 6px;
+    -ms-border-radius: 6px;
+}
+
+textarea {
+    border: 1px solid #cccccc;
+    padding: 4px;
+    color: #666666;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -o-border-radius: 6px;
+    -ms-border-radius: 6px;
+}
+
+
+

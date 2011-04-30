@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-{% block head %}
 <meta charset="utf-8">
-<title>{% block title %}CustomForm{% endblock %}</title>
+<title>{% block title %} CustomForm {% endblock %}</title>
 <link rel="stylesheet" type="text/css" href="/css/base.css">
+<link rel="stylesheet" type="text/css" href="/css/layout-two-columns.css">
+<link rel="stylesheet" type="text/css" href="/css/default.css">
 <script type="text/javascript" src="/js/jquery.js"></script>
-{% block style %}
-
-{% endblock %}
-{% endblock %}
+{% block head %}{% endblock %}
 </head>
 
 <body>
 <div id="container">
+
 <div id="header" >
 {% block header %}
 <h1><a href="/" id="title_logo"><span class="none">CustomForm</span></a><h1>
@@ -21,13 +20,11 @@
 </div>
 
 <div id="main">
-{% block main %}
-{% endblock main %}
+{% block main %}{% endblock main %}
 </div>
 
 <div id="side">
-{% block side %}
-{% endblock side %}
+{% block side %}{% endblock side %}
 </div>
 
 <div id="footer">

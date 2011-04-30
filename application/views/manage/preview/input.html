@@ -3,14 +3,16 @@
 {% block title %}プレビュー{% endblock %}
 
 {% block customform %}
-<form class="default" action="/index.php/manage/preview/confirm/?customform_id={{ customform_id }}" method="POST" >
+<div class="form-frame">
+<form action="/manage/preview/confirm/?customform_id={{ customform_id }}" method="POST" >
 
 <div>{{ message }}</div>
 
 {{ parent() }}
 
 <div>
-<input type="submit" class="submit" name="confirm" value="確認" data-inline="true" />
+<input type="submit" class="submit btn" name="confirm" value="確認" data-inline="true" />
 </div>
 </form>
+</div>
 {% endblock %}

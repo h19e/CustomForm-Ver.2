@@ -2,8 +2,8 @@
 
 {% block title %}アンケートフォーム作成サイト CustomForm{% endblock %}
 
-{% block style %}
-
+{% block head %}
+<script src="/js/jquery-ui-1.8.12.custom.min.js"></script>
 <style type="text/css" >
 
 #sortable { 
@@ -13,6 +13,7 @@
     width: 600px; 
     background-color: #ffffff;
 }
+
 #sortable li { 
     margin: 0 3px 10px 3px; 
     padding: 14px 0 ;
@@ -27,6 +28,7 @@
     -ms-border-radius: 6px;
 
 }
+
 .col1 {  
     display: block;
     float:left;

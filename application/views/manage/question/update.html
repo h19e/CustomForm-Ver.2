@@ -2,7 +2,7 @@
 
 {% block title %}アンケートフォーム作成サイト CustomForm{% endblock %}
 
-{% block style %}
+{% block head %}
 <link rel="stylesheet" type="text/css" href="/css/base-form.css">
 {% endblock %}
 
@@ -13,11 +13,11 @@
 
 
 {% block main %}
-<div>
+<div class="form-frame">
 {{ validation_errors|raw }}
-<form class="default" action="/index.php/manage/question/update/?customform_id={{ customform_id }}&question_id={{ question_id }}" method="post">
+<form action="/index.php/manage/question/update/?customform_id={{ customform_id }}&question_id={{ question_id }}" method="post">
 
-<dl class="question">
+<dl class="form-item">
 <dt>質問内容</dt>
 <dd>
 <input type="text" name="question_title" class="text" size="40" value="{{ question_title }}" />
@@ -43,62 +43,72 @@
 </dd>
 
 <div id="text_size">
-<label>テキストボックスサイズ</label></br />
+<dt>テキストボックスサイズ</dt>
+<dd>
 <input type="text" name="text_size" class="text" size="10" value="{{ text_size|default('20') }}" />
+</dd>
 </div>
 
 <div id="textarea_size">
-<label>テキストエリアサイズ</label><br />
+<dt>テキストエリアサイズ</dt>
+<dd>
 <label>高さ</label>
 <input type="text" name="textarea_rows" class="text" size="4" value="{{ textarea_rows|default('4') }}" />
 <label>幅</label>
 <input type="text" name="textarea_cols" class="text" size="4" value="{{ textarea_cols|default('40') }}" />
+</dd>
 </div>
 
 <div id="max_size">
-<label>最大文字数</label><br />
+<dt>最大文字数</dt>
+<dd>
 <input type="text" name="max_size" class="text" size="10" value="{{ max_size }}" />
+</dd>
 </div>
 
 <div id="validate_type">
-<label>入力チェックタイプ</label><br />
+<dt>入力チェックタイプ</dt>
+<dd>
 <select name="validate_type" >
 <option value="1">半角英数字</option>
 </select>
+</dd>
 </div>
 
 
 
 <div id="option_num" style="display:none;">{{ option_num }}</div>
+<div id="option">
 <dt>選択肢</dt>
-<dd id="option">
 {% for key,option in optionList %}
-<br />
+<dd>
 <label>{{ key }}. </label>
 <input type="text" class="text" name="option[{{ key }}]" value="{{ option.item }}" />
 <input type="checkbox" name="option_check[{{ key }}]" value="1" {{ option.default_check == 1 ? 'checked' : '' }} >
 <label>初期チェック</label>
-<br />
-{% endfor %}
 </dd>
+{% endfor %}
+</div>
 
 <div>
-<button type="button" id="add_button" value="" class="submit" >選択肢追加</button>
+<button type="button" id="add_button" value="" class="submit btn" >選択肢追加</button>
 </div>
 
 <div id="line_num">
-<label>一行表示個数</label><br />
+<dt>一行表示個数</dt>
+<dd>
 <input type="text" name="line_num" class="text" size="10" value="{{ line_num }}" />
+</dd>
 </div>
 
 <div>
-<input type="submit" class="submit" value="登録" />
+<input type="submit" class="submit btn" value="登録" />
 </div>
 </form>
 </div>
+
 <script type="text/javascript" src="/js/question.js" ></script>
 <script>
-
 
 $(function(){
     typeChange();
@@ -109,11 +119,11 @@ $(function(){
     $('#add_button').click(function(){
         var num = Number($('#option_num').html()) + 1;
         $('#option_num').html(num);
-        $('#option').append("<br />\n<label>" + num + ". </label>" +
+        $('#option').append("<dd>\n<label>" + num + ". </label>" +
 "<input type=\"text\" class=\"text\" name=\"option[" + num + "]\" value=\"\" />\n" +
 "<input type=\"checkbox\" name=\"option_check[" + num + "]\" value=\"1\" >\n" +
 "<label>初期チェック</label>" +
-"<br />");
+"</dd>");
     });
 });
 </script>

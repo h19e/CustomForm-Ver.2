@@ -3,34 +3,30 @@
 <head>
 <meta charset="utf-8">
 <title>アンケート {% block title %}{% endblock %}</title>
-<link rel="stylesheet" type="text/css" href="/css/formstyle.css">
+<link rel="stylesheet" type="text/css" href="/css/base.css">
+<link rel="stylesheet" type="text/css" href="/css/layout-two-columns.css">
+<link rel="stylesheet" type="text/css" href="/css/base-form.css">
+<link rel="stylesheet" type="text/css" href="/css/default.css">
 <style type="text/css">
 
-body {
- background-color: #fff;
- margin: 40px;
- font-family: Lucida Grande, Verdana, Sans-serif;
- font-size: 14px;
- color: #4F5155;
-}
 
 </style>
 </head>
 <body>
 <div id="container">
 <div id="header">
-<h1><a href="/"><span class="none">CustomForm</span></a><h1>
+<h1><a href="/" id="title_logo"><span class="none">CustomForm</span></a><h1>
 </div>
 
 <div id="main">
 {% block customform %}
 
+<dl class="form-item">
 {% for question in questionBodys %}
-<div>
-<label>{{ question.question_title }}</label><br />
-{{ question.body|raw }}
-</div>
+<dt>{{ question.question_title }}</dt>
+<dd>{{ question.body|raw }}</dd>
 {% endfor %}
+</dl>
 
 {% endblock %}
 </div>

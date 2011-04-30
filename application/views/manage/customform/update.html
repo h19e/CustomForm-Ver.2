@@ -3,14 +3,10 @@
 {% block title %}アンケートフォーム作成サイト CustomForm{% endblock %}
 
 
-{% block style %}
+{% block head %}
 <link rel="stylesheet" type="text/css" href="/css/base-form.css">
-
 <style type="text/css" >
-
-
 </style>
-
 {% endblock %}
 
 {% block navi %}
@@ -19,12 +15,12 @@
 
 {% block main %}
 
-<div>
+<div class="form-frame">
 {{ validation_errors|raw }}
-<form class="default" action="/index.php/manage/customform/update/" method="post">
+<form action="/manage/customform/update/" method="post">
 <input type="hidden" name="customform_id" value="{{ customform_id }}" />
 
-<dl class="question">
+<dl class="form-item">
 <dt>フォームタイトル</dt>
 <dd>
 <input type="text" name="customform_title" class="text" size="40" value="{{ customform_title }}" />
@@ -32,17 +28,17 @@
 
 <dt>入力画面メッセージ</dt>
 <dd>
-<textarea rows="4" cols="40" name="input_message" class="text" >{{ input_message }}</textarea>
+<textarea rows="6" cols="54" name="input_message" >{{ input_message }}</textarea>
 </dd>
 
 <dt>確認画面メッセージ</dt>
 <dd>
-<textarea rows="4" cols="40" name="confirm_message" class="text" >{{ confirm_message }}</textarea>
+<textarea rows="6" cols="54" name="confirm_message" >{{ confirm_message }}</textarea>
 </dd>
 
 <dt>完了画面メッセージ</dt>
 <dd>
-<textarea rows="4" cols="40" name="complete_message" class="text" >{{ complete_message }}</textarea>
+<textarea rows="6" cols="54" name="complete_message" >{{ complete_message }}</textarea>
 </dd>
 
 <dt>アンケート回答期限</dt>
@@ -56,7 +52,7 @@
 </dd>
 </dl>
 <div>
-<input type="submit" class="submit" value="更新" />
+<input type="submit" class="submit btn" value="更新" />
 </div>
 
 </form>
