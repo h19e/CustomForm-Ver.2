@@ -47,7 +47,9 @@ class Question extends CI_Controller {
         $data['optionList'] = $option['optionList'];
         $data['option_num'] = $option['option_num'];
         $data['customform_id'] = $this->input->get('customform_id');
-        $this->parser->parse('manage/question/regist',$data);
+        
+        $data['target'] = array('action' => 'regist', 'name' => '登録');
+        $this->parser->parse('manage/question/edit',$data);
 
     }
         
@@ -91,7 +93,8 @@ class Question extends CI_Controller {
             $this->load->model('input_type');
             $data['typeOption'] = $this->input_type->get();
             
-            $this->parser->parse('manage/question/update',$data);
+            $data['target'] = array('action' => 'update', 'name' => '更新');
+            $this->parser->parse('manage/question/edit',$data);
         }
 
     }

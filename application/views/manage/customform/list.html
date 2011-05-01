@@ -15,9 +15,9 @@
 #form-list li.top {
     margin: 0 3px 0px 3px;
     padding: 14px 0 ;
-    border-top: solid 1px #b98589;    background-color: #ffffff;
-    border-left: solid 1px #b98589;    background-color: #ffffff;
-    border-right: solid 1px #b98589;    background-color: #ffffff;
+    border-top: solid 1px #9d896c;    background-color: #ffffff;
+    border-left: solid 1px #9d896c;    background-color: #ffffff;
+    border-right: solid 1px #9d896c;    background-color: #ffffff;
     padding-left: 10px;
     -moz-border-radius: 6px 6px 0 0;
     -webkit-border-radius: 6px 6px 0 0 ;
@@ -28,7 +28,7 @@
 #form-list li.bottom {
     margin: 0 3px 10px 3px;
     padding: 14px 0 ;
-    border: solid 1px #b98589;    background-color: #ffffff;
+    border: solid 1px #9d896c;    background-color: #ffffff;
     padding-left: 10px;
     -moz-border-radius: 0 0 6px 6px;
     -webkit-border-radius: 0 0 6px 6px;
@@ -47,12 +47,13 @@ span.col2 {
     float:left;
     width: 100px;
     padding-left: 10px;
-    border-left: solid 1px #b98589;
+    border-left: solid 1px #9d896c;
 }
 
 div.right-position {
     text-align: right;
     padding-right: 20px;
+    margin-top: 5px;
 }
 
 
@@ -68,9 +69,9 @@ div.right-position {
 
 
 {% block main %}
-<!--
-<a href="/manage/customform/regist/">フォームの新規作成</a>
--->
+
+<p><a href="/manage/customform/regist/">フォームの新規作成</a></p>
+
 <ul id="form-list">
 {% for value in list %}
 <li class="top">
@@ -80,23 +81,14 @@ div.right-position {
 <span class="col2"><a href="/manage/answer/summary/?customform_id={{ value.customform_id }}" >回答管理</a></span>
 <p>&nbsp;</p>
 </li>
-
-<!--
-<div class="bottom">
-<a href="/manage/preview/input/?customform_id={{ value.customform_id }}" target="_blank"><button class="submit" >プレビュー</button></a>
-<a href="/manage/customform/release/{{ offset }}?customform_id={{ value.customform_id }}"><button class="submit" >本番反映</button></a>
-<button class="submit" >削除</button>
-</div>
--->
 <li class="bottom">
 <p>デザインテンプレート [ {{ value.template_name }} ] <a href="">変更</a> </p>
 <p>アンケート期限 [ {{ value.end_time|date("Y/m/d") }} ] </p>
 <p class="date">登録日時:{{ value.create_time|date("Y/m/d H:i:s") }}&nbsp;&nbsp;更新日時:</label>{{ value.update_time|date("Y/m/d H:i:s") }}</p>
 <div class="right-position">
-<a href="/"><button class="btn simple">プレビュー</button></a>
-<a href="/"><button class="btn simple">本番反映</button></a>
+<a href="/manage/preview/input/?customform_id={{ value.customform_id }}" target="_blank"><button class="btn simple" >プレビュー</button></a>
+<a href="/manage/customform/release/{{ offset }}?customform_id={{ value.customform_id }}"><button class="btn simple" >本番反映</button></a>
 </div>
-
 </li>
 {% endfor %}
 {{ pagination|raw }}

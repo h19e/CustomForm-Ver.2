@@ -24,7 +24,6 @@ class Customform extends CI_Controller {
         $this->load->model('dao/dao_customform');
         $this->data['count'] = $this->dao_customform->getCount();
         $this->data['list'] = $this->dao_customform->getList($limit,$offset);
-//var_dump($this->data['list']);
         
         $this->load->model('pager');
         $this->data['pagination'] = $this->pager->make($this->data['count'],$limit);
@@ -52,7 +51,7 @@ class Customform extends CI_Controller {
                 //登録
                 $this->load->model('dao_customform');
                 $customform_id = $this->dao_customform->regist();
-                
+                         
                 $this->output->set_header('Location: /manage/customform/index/');
                 return; 
             }
@@ -61,8 +60,9 @@ class Customform extends CI_Controller {
         $this->load->model('dao/dao_design');
         $designList = $this->dao_design->getList();
         $this->data['designList'] = $designList;
-
-        $this->parser->parse('manage/customform/regist',$this->data);
+        
+        $this->data['target'] = array('action' => 'regist', 'name' => '登録');
+        $this->parser->parse('manage/customform/edit',$this->data);
 
     }
 
@@ -91,7 +91,8 @@ class Customform extends CI_Controller {
         $this->data['designList'] = $designList;
         
         
-        $this->parser->parse('manage/customform/update',$this->data);
+        $this->data['target'] = array('action' => 'update', 'name' => '更新');
+        $this->parser->parse('manage/customform/edit',$this->data);
     }
 
     public function release($offset)

@@ -12,30 +12,30 @@ h1 {
 
 .submit {
     font-family: Arial, Helvetica, sans-serif;
+    background-color: #9d896c; 
     font-size: 14px;
     font-weight: bold;
     color: #ffffff;
     padding: 1px 42px;
-    background: -moz-linear-gradient(
-        top,
-        #948c8b 0%,
-        #d6d6d6);
-    background: -webkit-gradient(
-        linear, left top, left bottom,
-        from(#948c8b),
-        to(#d6cece));
-    border: 3px double #d6cece;
+    border: 3px double #ffffff;
 }
 
 .simple {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #ffffff;
+    background-color: #9d896c; 
     font-size: 14px;
-    /* color: #ffffff; */
+    color: #ffffff; 
     padding: 1px 12px;
-    border: 3px double #b98589;
+    border: 3px double #ffffff;
 }
 
+
+.plus {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    
+}
 
 
 

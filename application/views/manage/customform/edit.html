@@ -15,11 +15,10 @@
 
 {% block main %}
 
-
 <div class="form-frame">
-
 {{ validation_errors|raw }}
-<form action="/manage/customform/regist/" method="post">
+<form action="/manage/customform/{{ target.action }}/" method="post">
+<input type="hidden" name="customform_id" value="{{ customform_id }}" />
 
 <dl class="form-item">
 <dt>フォームタイトル</dt>
@@ -53,7 +52,7 @@
 </dd>
 </dl>
 <div>
-<input type="submit" class="submit btn" value="登録" />
+<input type="submit" class="submit btn" value="{{ target.name }}" />
 </div>
 
 </form>

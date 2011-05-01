@@ -1,0 +1,29 @@
+
+#container {
+    background-color: #ffffff;
+    width: 960px;
+    margin: 0 auto;
+    height: 100%;
+    min-height: 100%;
+}
+
+body > #container {
+    height: auto;
+}
+
+#header {
+}
+
+#main {
+    width: 800px;
+    padding: 0 80px 0 80px;
+}
+
+
+#footer {
+    clear: left;
+    padding: 20px;
+    color: #999999;
+    text-align: center;
+}
+

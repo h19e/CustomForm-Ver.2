@@ -38,5 +38,19 @@ textarea {
     -ms-border-radius: 6px;
 }
 
+.radio {
+    margin: 4px;
+}
+
+.checkbox {
+    margin: 4px;
+}
+
+.select {
+    margin: 4px;
+    color: #ffffff;
+    background-color: #ffffff;    
+    padding: 4px;
+}
 
 
