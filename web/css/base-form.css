@@ -10,7 +10,14 @@
 }
 
 .form-item dt {
-    padding: 2px;
+    padding: 0 4px 2px 4px;
+    margin-bottom: 4px;
+    color: #9d896c;
+    background-color: #ffffff; 
+    border-bottom: solid 1px #9d896c;
+    border-left: solid 4px #9d896c;
+    width: 80%;
+    
 }
 
 .form-item dd {
@@ -47,10 +54,10 @@ textarea {
 }
 
 .select {
+    font-size: 16px;
     margin: 4px;
     color: #ffffff;
-    background-color: #ffffff;    
-    padding: 4px;
+    background-color: #9d896c; 
 }
 
 

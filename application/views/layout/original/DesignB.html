@@ -2,40 +2,43 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="/css/jquery.mobile/jquery.mobile.css">
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript">
+$(document).bind("mobileinit",function(){
+    $.mobile.ajaxLinksEnabled = false;
+    $.mobile.ajaxFormsEnabled = false;
+});
+</script>
+<script type="text/javascript" src="/js/jquery.mobile.js"></script>
 <title>アンケート {% block title %}{% endblock %}</title>
-<link rel="stylesheet" type="text/css" href="/css/formstyle.css">
 <style type="text/css">
-
-body {
- background-color: #fff;
- margin: 40px;
- font-family: Lucida Grande, Verdana, Sans-serif;
- font-size: 14px;
- color: #4F5155;
-}
-
 </style>
 </head>
 <body>
-<div id="container">
-<div id="header">
-<h1><a href="/"><span class="none">CustomForm</span></a><h1>
+<div data-role="page" data-theme="c">
+<div data-role="header">
+<h1>CustomForm<h1>
 </div>
 
-<div id="main">
+<div data-role="content">
 {% block customform %}
 
-{% for question in questionBodys %}
 <div>
-<label>{{ question.question_title }}</label><br />
+{% for question in questionBodys %}
+<div data-role="fieldcontain">
+<fieldset data-role="controlgroup">
+<legend>{{ question.question_title }}</legend>
 {{ question.body|raw }}
+</fieldset>
 </div>
 {% endfor %}
+</div>
 
 {% endblock %}
 </div>
 
-<div id="footer">
+<div data-role="footer">
 footer
 </div>
 

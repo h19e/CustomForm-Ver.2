@@ -38,10 +38,9 @@ class Preview extends CI_Controller {
         $data['customform_title'] = $customform['customform_title'];
         $data['message'] = $customform['input_message'];
         $data['questionBodys'] = $questionBodys;
-        
+
         //テンプレートデザイン
         $data['original_design'] = "layout/original/" . $customform['design_type'] . '.html';
-      
        
         $this->parser->parse('manage/preview/input',$data);
 
